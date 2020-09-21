@@ -1,6 +1,5 @@
-wp=$(dirname $(readlink -f $0))
-echo $a
-echo {'pwd'}
+conda list > out.txt
+
 count=0
 pkg=()
 exist=()
@@ -9,27 +8,25 @@ do
   l=$line;
   pre=${l:0:1};
   if [ ${pre}  == "-" ]; then
-    pkg[count]=${l:1}
+    t=${l:2}
+    pkg[count]=${t%%=*}
     let exist[count]=0
     let count=$count+1
   fi
 done < environment.yml
-echo $count
 echo ${pkg[@]}
 
-fp=$wp"/out.txt"
+wp=$(dirname $(readlink -f $0))
+fp="/out.txt"
 f=$(cat $wp/out.txt)
 i=0
-echo ${#pkg[*]}
 for((i=0;i<${#pkg[*]};i++));
 do
-  echo ${pkg[$i]}
   if [[ ${f} =~ ${pkg[$i]} ]]
   then
-    echo found
+    echo ${pkg[$i]} found
     let exist[i]=1
   else
-    echo not found
+    echo ${pkg[$i]} not found
   fi;
 done
-echo ${exist[@]}
