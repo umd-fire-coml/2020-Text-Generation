@@ -1,0 +1,35 @@
+wp=$(dirname $(readlink -f $0))
+echo $a
+echo {'pwd'}
+count=0
+pkg=()
+exist=()
+while read line;
+do
+  l=$line;
+  pre=${l:0:1};
+  if [ ${pre}  == "-" ]; then
+    pkg[count]=${l:1}
+    let exist[count]=0
+    let count=$count+1
+  fi
+done < environment.yml
+echo $count
+echo ${pkg[@]}
+
+fp=$wp"/out.txt"
+f=$(cat $wp/out.txt)
+i=0
+echo ${#pkg[*]}
+for((i=0;i<${#pkg[*]};i++));
+do
+  echo ${pkg[$i]}
+  if [[ ${f} =~ ${pkg[$i]} ]]
+  then
+    echo found
+    let exist[i]=1
+  else
+    echo not found
+  fi;
+done
+echo ${exist[@]}
