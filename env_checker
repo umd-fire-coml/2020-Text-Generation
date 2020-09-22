@@ -1,0 +1,32 @@
+conda list > out.txt
+
+count=0
+pkg=()
+exist=()
+while read line;
+do
+  l=$line;
+  pre=${l:0:1};
+  if [ ${pre}  == "-" ]; then
+    t=${l:2}
+    pkg[count]=${t%%=*}
+    let exist[count]=0
+    let count=$count+1
+  fi
+done < environment.yml
+echo ${pkg[@]}
+
+wp=$(dirname $(readlink -f $0))
+fp="/out.txt"
+f=$(cat $wp/out.txt)
+i=0
+for((i=0;i<${#pkg[*]};i++));
+do
+  if [[ ${f} =~ ${pkg[$i]} ]]
+  then
+    echo ${pkg[$i]} found
+    let exist[i]=1
+  else
+    echo ${pkg[$i]} not found
+  fi;
+done
