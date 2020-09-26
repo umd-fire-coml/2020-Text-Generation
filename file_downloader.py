@@ -88,7 +88,7 @@ def dict_downloader(overwrite=False):
         Return the english_dictionaary object (An en_dict object)
     """
     e = None
-    data_dir = "data/en_dictionary/"
+    data_dir = "data/en_dictionary"
 
     # Create the dir if not exist
     if not os.path.isdir(data_dir):
@@ -96,7 +96,7 @@ def dict_downloader(overwrite=False):
 
     # iterate through all letters and download the dictionary
     for s in string.ascii_lowercase:
-        f_name = f"{data_dir}dict_{s}.pickle"
+        f_name = f"{data_dir}/dict_{s}.pickle"
         print(f"Present letter: {s}")
 
         # Check if file exists
@@ -154,6 +154,9 @@ def dataset_downloader(overwrite=False):
 
 def downloader():
     """ Main method for download all required files """
+    if not os.path.isdir("data"):
+        os.mkdir("data")
+
     error_file_name = "data/en_dictionary/error_list.pickle"
 
     error = dict_downloader()
