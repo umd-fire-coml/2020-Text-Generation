@@ -72,7 +72,6 @@ def fetch(letter: str, base_dict=en_dict(), err_list=None):
     return base_dict, err_list
 
 
-#
 def get_content(raw: str):
     """ Get the actual contents from the HTML element """
     return raw[3: len(raw)-4]
