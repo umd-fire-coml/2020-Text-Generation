@@ -1,6 +1,8 @@
 from enum import Enum, unique
+from ModuleException import ModuleException
 
 
+# Enum for tracking all word classes
 @unique
 class word_class(Enum):
     N = "Noun"
@@ -21,35 +23,45 @@ class word_class(Enum):
         return self.value == other.value
 
 
+# The class for a word, stores the word itself and the class(es) it belongs to
 class e_word:
     def __init__(self, w: str):
         self.word = w
         self.wc = []
         self.__dict__ = {"word": self.word, "wc": self.wc}
 
+    # Return the length of the word
     def __len__(self):
         return len(self.word)
 
+    # Return the letters at specific indexes
     def __getitem__(self, item):
         return self.word[item]
 
+    # Overwrites the original toString method
     def __str__(self):
         return f"[{self.word}, {self.wc}]"
 
     def __repr__(self):
         return f"[{self.word}, {self.wc}]"
 
+    # Add specific word classes to this word
     def add_wc(self, wc: list):
         for i in wc:
+            # Check if the class already exists
             if i not in self.wc:
                 self.wc.append(i)
+
+        # Overwrites its __dict__ property for easier serialization
         self.__dict__["wc"] = self.wc
 
 
+# The class of english dictionary
 class en_dict:
     def __init__(self):
         self.d = {}
 
+    # Add a word into the dictionary
     def add_word(self, word):
         if type(word) is e_word:
             self.__add_to_dict(self.d, word, 0)
@@ -73,6 +85,7 @@ class en_dict:
                     t = {temp_word[-i]: t}
                 present[temp_word[pos]] = t
 
+    # lookup a word to see if it's in the dictionary
     def lookup_word(self, target: str):
         return en_dict.__lookup(self.d, target, 0)
 
@@ -90,6 +103,20 @@ class en_dict:
                 return en_dict.__lookup(present[word[pos]], word, pos + 1)
             else:
                 return False
+
+    # Add the words from another en_dict object into this one
+    def add_all(self, other):
+        if type(other) is en_dict:
+            self.__add_from_other(other.d)
+        else:
+            raise ModuleException("The argument should be an en_dict object!")
+
+    def __add_from_other(self, other: dict):
+        for i in other.keys():
+            if i == "words":
+                self.add_word(other[i])
+            else:
+                self.__add_from_other(other[i])
 
 
 if __name__ == "__main__":
