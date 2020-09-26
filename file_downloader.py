@@ -144,5 +144,4 @@ def downloader():
 
 
 if __name__ == "__main__":
-    # base, error = dict_downloader()
     downloader()
