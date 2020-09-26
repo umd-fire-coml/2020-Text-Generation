@@ -10,9 +10,18 @@ import pickle
 from eng_dictionary import en_dict, e_word, word_class
 
 
-# Fetch the dictionary for the letter provided
-# It will return an en_dict object and an error_list
 def fetch(letter: str, base_dict=en_dict(), err_list=None):
+    """ Fetch the dictionary for the letter provided
+
+    Args:
+        letter: All words started with this letter will be downloaded
+        base_dict: The base en_dictionary object
+        err_list: The error list that is used to store all words that doesn't have a word class
+
+    Returns:
+        return the base en_dictionary object and the error list
+
+    """
     if err_list is None:
         err_list = []
 
@@ -63,14 +72,22 @@ def fetch(letter: str, base_dict=en_dict(), err_list=None):
     return base_dict, err_list
 
 
-# Get the actual content from the HTML element
+#
 def get_content(raw: str):
+    """ Get the actual contents from the HTML element """
     return raw[3: len(raw)-4]
 
 
-# The downloader for english dictionary
-# @param overwrite: if the function overwrites the original file when the file exists
 def dict_downloader(overwrite=False):
+    """ The downloader for english dictionary
+
+    Args:
+        overwrite: When it's True, the function overwrites the original file is the file exists,
+                   otherwise it skips that file
+
+    Returns:
+        Return the english_dictionaary object (An en_dict object)
+    """
     e = None
     data_dir = "data/en_dictionary/"
 
@@ -94,9 +111,15 @@ def dict_downloader(overwrite=False):
     return e
 
 
-# The downloader for the dataset
-# @param overwrite: if the function overwrites the original file when the file exists
 def dataset_downloader(overwrite=False):
+    """
+    Args:
+        overwrite: When it's True, the function overwrites the original file is the file exists,
+                   otherwise it skips that file
+
+    Returns:
+        Doesn't return anythings
+    """
     file_name = "data.zip"
     extract_path = "data/dataset/"
 
@@ -130,8 +153,8 @@ def dataset_downloader(overwrite=False):
         print("Dataset already exists")
 
 
-# Main method for download all required files
 def downloader():
+    """ Main method for download all required files """
     error_file_name = "data/en_dictionary/error_list.pickle"
 
     error = dict_downloader()

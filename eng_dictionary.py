@@ -2,9 +2,9 @@ from enum import Enum, unique
 from ModuleException import ModuleException
 
 
-# Enum for tracking all word classes
 @unique
 class word_class(Enum):
+    """ Enums for tracking all word classes """
     N = "Noun"
     VERB = "Verb"
     ADJ = "Adjective"
@@ -25,28 +25,36 @@ class word_class(Enum):
 
 # The class for a word, stores the word itself and the class(es) it belongs to
 class e_word:
+    """
+    The class that stores each English word
+
+    Args:
+        word: The string that stores actual word
+        wc: The list that stores the possible word class(es) the word belongs to
+    """
     def __init__(self, w: str):
         self.word = w
         self.wc = []
         self.__dict__ = {"word": self.word, "wc": self.wc}
 
-    # Return the length of the word
     def __len__(self):
+        """ return the length of the word"""
         return len(self.word)
 
-    # Return the letters at specific indexes
     def __getitem__(self, item):
+        """ Return the letters at specific indexes """
         return self.word[item]
 
-    # Overwrites the original toString method
     def __str__(self):
+        """ Overwrites the original __str__ method """
         return f"[{self.word}, {self.wc}]"
 
     def __repr__(self):
+        """ Overwrites the original __repr__ method """
         return f"[{self.word}, {self.wc}]"
 
-    # Add specific word classes to this word
     def add_wc(self, wc: list):
+        """ Add specific word classes to this word """
         for i in wc:
             # Check if the class already exists
             if i not in self.wc:
@@ -56,13 +64,17 @@ class e_word:
         self.__dict__["wc"] = self.wc
 
 
-# The class of english dictionary
 class en_dict:
+    """
+    The class of english_dictionary
+    Args:
+        d: the dictionary object that stores all the words
+    """
     def __init__(self):
         self.d = {}
 
-    # Add a word into the dictionary
     def add_word(self, word):
+        """ Add a word into the dictionary """
         if type(word) is e_word:
             self.__add_to_dict(self.d, word, 0)
         elif type(word) is list:
@@ -85,8 +97,8 @@ class en_dict:
                     t = {temp_word[-i]: t}
                 present[temp_word[pos]] = t
 
-    # lookup a word to see if it's in the dictionary
     def lookup_word(self, target: str):
+        """ lookup a word to see if it's in the dictionary """
         return en_dict.__lookup(self.d, target, 0)
 
     @staticmethod
@@ -104,8 +116,8 @@ class en_dict:
             else:
                 return False
 
-    # Add the words from another en_dict object into this one
     def add_all(self, other):
+        """ Add the words from another en_dict object into this one """
         if type(other) is en_dict:
             self.__add_from_other(other.d)
         else:
@@ -117,15 +129,3 @@ class en_dict:
                 self.add_word(other[i])
             else:
                 self.__add_from_other(other[i])
-
-
-if __name__ == "__main__":
-    ed = en_dict()
-    # ed.add_word(["apple", "bad", "sharp"])
-    # ed.add_word([e_word("apple"),
-    #              e_word("bad"),
-    #              e_word("sharp")])
-    print(ed.d)
-
-    print(ed.lookup_word("apple"))
-    print(ed.lookup_word("app"))
