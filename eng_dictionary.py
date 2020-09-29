@@ -125,7 +125,7 @@ class en_dict:
 
     def __add_from_other(self, other: dict):
         for i in other.keys():
-            if i == "words":
+            if i == "word":
                 self.add_word(other[i])
             else:
                 self.__add_from_other(other[i])
