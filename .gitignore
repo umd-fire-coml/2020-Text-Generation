@@ -129,5 +129,3 @@ dmypy.json
 .pyre/
 /data/
 /data.zip
-/en_dict.pickle
-/error_list.pickle
