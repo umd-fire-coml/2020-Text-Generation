@@ -1,7 +1,6 @@
 import pickle
 import string
 import xml.etree.ElementTree as ET
-import tqdm
 
 from file_downloader import en_dict
 
@@ -34,6 +33,7 @@ def load_dataset():
         print("Error occurred while loading dataset")
         print(e)
         return None
+
 
 if __name__ == "__main__":
     load_dict()
