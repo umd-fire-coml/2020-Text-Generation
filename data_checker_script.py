@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 
 def data_parser():
     path = "data/dataset/nysk.xml"
+
     with open(path, "r", encoding="utf-8") as f:
         doc = ET.ElementTree(file=f)
 
