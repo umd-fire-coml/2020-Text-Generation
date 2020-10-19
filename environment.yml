@@ -4,6 +4,7 @@ dependencies:
     - keras
     - jupyterlab
     - gensim
+    - nltk
     - pandas
     - numpy
     - matplotlib
