@@ -15,14 +15,14 @@ def __init__(self, doc_ids, batch_size=32, shuffle=True):
 
 def generate_batch(self):
     'Creating a ElementTree with the xml file'
-    data_tree = ET.parse('data/dataset/nysk.xml')
+    data_tree = ET.parse('nysk.xml')
     data_root = data_tree.getroot()
 
     'Opens file for writing'
     word_set = open("WordDataset.txt", "w")
 
     'Finds all document tags and their corresponding text contents'
-    for description in data_root.findall('document'):
+    for description in myroot.findall('document'):
         doc_text = description.find('text').text
         'Splits the description string content into individual words in a list'
         split_words = doc_text.split()
