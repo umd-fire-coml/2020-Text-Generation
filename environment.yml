@@ -3,6 +3,7 @@ dependencies:
     - tensorflow=2.0
     - keras
     - jupyterlab
+    - gensim
     - pandas
     - numpy
     - matplotlib
