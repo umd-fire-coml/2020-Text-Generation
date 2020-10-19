@@ -105,16 +105,16 @@ class en_dict:
     def __lookup(present: dict, word: str, pos: int):
         if pos == len(word):
             if "word" in present.keys():
-                return True
+                return present["word"]
             else:
-                return False
+                return None
         else:
             if not word[pos].isalpha():
-                return False
+                return None
             if word[pos] in present.keys():
                 return en_dict.__lookup(present[word[pos]], word, pos + 1)
             else:
-                return False
+                return None
 
     def add_all(self, other):
         """ Add the words from another en_dict object into this one """
