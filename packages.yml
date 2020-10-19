@@ -1,0 +1,5 @@
+name: text-generation
+channels:
+  - defaults
+prefix: /Users/stefan/.conda/envs/text-generation
+
