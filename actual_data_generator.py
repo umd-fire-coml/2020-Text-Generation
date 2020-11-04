@@ -54,7 +54,7 @@ class DataGenerator:
             raise GeneratorExceptions("Path doesn't exist")
 
     def process_data(self):
-
+        pass
 
 
 with open("data/dataset/1.txt", 'w', encoding='utf-8') as f:
