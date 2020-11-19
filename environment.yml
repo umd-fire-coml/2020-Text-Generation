@@ -1,6 +1,6 @@
 name: text-generation
 dependencies:
-    - tensorflow=2.0
+    - tensorflow=2.3.0
     - keras
     - jupyterlab
     - gensim
