@@ -74,3 +74,6 @@ Our model consists of an input layer where each token (character) in the input s
    * `python validation-script.py`
 9. Run the Training notebook. This uses the data generator to generate input data, builds the model, and trains it for 20 epochs. The model testing results are also displayed for a given input sentence.
    * `training.ipynb`
+
+## References:
+A. Mittal, “Understanding RNN and LSTM,” Medium, 12-Oct-2019. [Online]. Available: https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e. [Accessed: 04-Dec-2020]. 
