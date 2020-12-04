@@ -22,31 +22,55 @@ Our model consists of an input layer where each token (character) in the input s
 ## Files:
 * Environment
    * `environment.yml`
-    * Description
+     * This yaml file defines the name of a Conda environment along with all necessary installations for the project to work
    * `env_checker.sh`
-    * Description
+     * This shell script checks the current environment to see if it has all required packages installed
    * `PackageChecker.ipynb`
-    * Description
+     * This notebook shows which packages have been installed in the current environment and which packages still need to be installed
 * Data Checker
-   * `data_checker_script.py`
    * `file_downloader.py`
+     * This file is used to download the dataset used for training
+   * `data_checker_script.py`
+     * This file is used to check if the dataset has downloaded correctly
    * `word_lookup.py`
-   * `validation_script.py`
+     * This file is used to check if a word is valid using tqdm
    * `validation-script.py`
+     * This file is used to validate whether or not the data downloading and processing step has been performed correctly
    * `data.zip`
+     * Description
    * `eng_dictionary.py`
+     * This file is used to check if a word is a valid word in the English Dictionary
    * `Data_Viz.ipynb`
+     * This file is a basic vizualization for the downloaded data. It represents words in news articles as vectors and computes word similarity using Word2Vec
 * Data Processor
    * `data_generator.py`
+     * This file is a data generator that allows the model to train on small batches of data rather than training with the entire dataset in memory
 * Model Builder
    * `model.py`
+     * This file builds the RNN deep learning model for text generation
 * Training the Model
    * `training.ipynb`
+     * This notebook is used to train the RNN model and test it. It uses the data generator as part of training
 * Testing the Model
    * `copy_training_USE_THIS_ONE.ipynb`
+     * This is a demonstration notebook that shows an example of model training, testing, and output on a small subset of training data
 
 ## Running the Project:
-1. Clone the project locally
+1. Clone the project locally (In a terminal)
    * `git clone https://github.com/umd-fire-coml/2020-Text-Generation.git`
-2. Create a Conda environment using the environment.yml file
+2. Enter the 2020-Text-Generation folder
+   * `cd 2020-Text-Generation`
+3. Create a Conda environment using the environment.yml file
    * `conda env create -f environment.yml`
+4. Activate the Conda environment
+   * `conda activate text-generation`
+5. Run the environment checker in the current directory to check if the environment has required packages installed
+  * `env_checker`
+6. Run the file downloader to download the dataset
+  * `python file_downloader`
+7. Run the data checker script to check if the data is correctly downloaded
+  * `python data_checker_script
+8. Run the data validation script to check if the data is valid
+  * `python validation-script.py`
+9. Run the Training notebook. This uses the data generator to generate input data, builds the model, and trains it for 20 epochs. The model testing results are also displayed for a given input sentence.
+  * `training.ipynb`
