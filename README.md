@@ -20,14 +20,14 @@ Our model consists of an input layer where each token (character) in the input s
 * The file `copy_training_USE_THIS_ONE.ipynb` is a python notebook that demonstrates how to use the data generator to download the data and process it as input to train the model. It also tests the trained model by providing input sentences and outputting the generated sentences from the model.
 
 ## Files:
-* Environment
+* **Environment**
    * `environment.yml`
      * This yaml file defines the name of a Conda environment along with all necessary installations for the project to work
    * `env_checker.sh`
      * This shell script checks the current environment to see if it has all required packages installed
    * `PackageChecker.ipynb`
      * This notebook shows which packages have been installed in the current environment and which packages still need to be installed
-* Data Checker
+* **Data Checker**
    * `file_downloader.py`
      * This file is used to download the dataset used for training
    * `data_checker_script.py`
@@ -42,16 +42,16 @@ Our model consists of an input layer where each token (character) in the input s
      * This file is used to check if a word is a valid word in the English Dictionary
    * `Data_Viz.ipynb`
      * This file is a basic vizualization for the downloaded data. It represents words in news articles as vectors and computes word similarity using Word2Vec
-* Data Processor
+* **Data Processor**
    * `data_generator.py`
      * This file is a data generator that allows the model to train on small batches of data rather than training with the entire dataset in memory
-* Model Builder
+* **Model Builder**
    * `model.py`
      * This file builds the RNN deep learning model for text generation
-* Training the Model
+* **Training the Model**
    * `training.ipynb`
      * This notebook is used to train the RNN model and test it. It uses the data generator as part of training
-* Testing the Model
+* **Testing the Model**
    * `copy_training_USE_THIS_ONE.ipynb`
      * This is a demonstration notebook that shows an example of model training, testing, and output on a small subset of training data
 
