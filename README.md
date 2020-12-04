@@ -19,12 +19,14 @@ Our model consists of an input layer where each token (character) in the input s
 ## Example Notebooks:
 * The file `copy_training_USE_THIS_ONE.ipynb` is a python notebook that demonstrates how to use the data generator to download the data and process it as input to train the model. It also tests the trained model by providing input sentences and outputting the generated sentences from the model.
 
-## Running the Project:
+## Files:
 * Environment
    * `environment.yml`
+    * Description
    * `env_checker.sh`
+    * Description
    * `PackageChecker.ipynb`
-
+    * Description
 * Data Checker
    * `data_checker_script.py`
    * `file_downloader.py`
@@ -34,15 +36,17 @@ Our model consists of an input layer where each token (character) in the input s
    * `data.zip`
    * `eng_dictionary.py`
    * `Data_Viz.ipynb`
-
 * Data Processor
    * `data_generator.py`
-
 * Model Builder
    * `model.py`
-
 * Training the Model
    * `training.ipynb`
-
 * Testing the Model
    * `copy_training_USE_THIS_ONE.ipynb`
+
+## Running the Project:
+1. Clone the project locally
+   * `git clone https://github.com/umd-fire-coml/2020-Text-Generation.git`
+2. Create a Conda environment using the environment.yml file
+   * `conda env create -f environment.yml`
