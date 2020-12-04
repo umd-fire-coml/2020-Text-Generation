@@ -21,27 +21,28 @@ Our model consists of an input layer where each token (character) in the input s
 
 ## Running the Project:
 * Environment
-** `environment.yml`
-** `env_checker.sh`
-** `PackageChecker.ipynb`
+   * `environment.yml`
+   * `env_checker.sh`
+   * `PackageChecker.ipynb`
 
 * Data Checker
-** `data_checker_script.py`
-** `file_downloader.py`
-** `word_lookup.py`
-** `validation_script.py`
-** `validation-script.py`
-** `data.zip`
-** `eng_dictionary.py`
-** `Data_Viz.ipynb`
+   * `data_checker_script.py`
+   * `file_downloader.py`
+   * `word_lookup.py`
+   * `validation_script.py`
+   * `validation-script.py`
+   * `data.zip`
+   * `eng_dictionary.py`
+   * `Data_Viz.ipynb`
 
 * Data Processor
-** `data_generator.py`
+   * `data_generator.py`
 
 * Model Builder
-** `model.py`
+   * `model.py`
 
 * Training the Model
-** `training.ipynb`
+   * `training.ipynb`
 
 * Testing the Model
+   * `copy_training_USE_THIS_ONE.ipynb`
