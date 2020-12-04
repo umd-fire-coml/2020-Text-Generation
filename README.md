@@ -69,7 +69,7 @@ Our model consists of an input layer where each token (character) in the input s
 6. Run the file downloader to download the dataset
    * `python file_downloader`
 7. Run the data checker script to check if the data is correctly downloaded
-   * `python data_checker_script
+   * `python data_checker_script`
 8. Run the data validation script to check if the data is valid
    * `python validation-script.py`
 9. Run the Training notebook. This uses the data generator to generate input data, builds the model, and trains it for 20 epochs. The model testing results are also displayed for a given input sentence.
