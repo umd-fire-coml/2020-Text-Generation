@@ -76,4 +76,7 @@ Our model consists of an input layer where each token (character) in the input s
    * `training.ipynb`
 
 ## References:
-A. Mittal, “Understanding RNN and LSTM,” Medium, 12-Oct-2019. [Online]. Available: https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e. [Accessed: 04-Dec-2020]. 
+1. A. Mittal, “Understanding RNN and LSTM,” Medium, 12-Oct-2019. [Online]. Available: https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e. [Accessed: 04-Dec-2020]. 
+2. TensorFlow, "Word2Vec," TensorFlow, 30-Oct-2020. [Online]. Available: https://www.tensorflow.org/tutorials/text/word2vec. [Accessed: 04-Dec-2020].
+3. U. Kumar, "Natural Language Generation using Sequence Models," TowardsDataScience, 29-Jun-2020. [Online]. Available: https://towardsdatascience.com/how-our-device-thinks-e1f5ab15071e. [Accessed: 04-Dec-2020]
+4. D. Zhang, "RNN: Training An English Major," Medium, 17-Apr-2019. [Online]. Available: https://medium.com/@dzhang21/rnn-an-english-major-c62175228144. [Accessed: 04-Dec-2020].
