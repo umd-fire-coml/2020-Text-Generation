@@ -13,6 +13,9 @@ The aim of this project is to create a Machine Learning Model that generates out
 
 Recurrent Neural Networks(RNN) are state of the art deep learning algorithms for sequential data like text. This is because they can remember their previous inputs in memory (using Long-Short Term Memory (LSTM)). As such, we train a model to learn the sequence in which words (encodded as vectors) appear in a sentence and then generate text by sequentially predicting the next best word given the previous sequence of words.
 
+# Significance
+With good enough Natural Language Processing models, we can use Text Generation in many applications. Automatically generated text that is indistiguishable from Human-generated language can be used to produce online content, descriptions, excerpts, chat bots, and twitter bots. Software that can generate text efficiently and effectively can be implemented by journalists when quickly reporting on breaking news or by retailers for generating product descriptions. As more and more content is being seeked out by users online, there is a need for these text-based sources to be generated automatically.
+
 ### Model Architecture:
 Our model consists of an input layer where each token (character) in the input sentence is used an an input. An LSTM layer then learns the sequence of the tokens (characters) as words, followed by a second input layer, where each learned word is used as an input, followed by a second LSTM layer that learns the sequence of the words. Finally a Dense layer with Softmax Activation that transforms the outputs of the model to probability values.
 
